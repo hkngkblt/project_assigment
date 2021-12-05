@@ -26,6 +26,7 @@ def get_usd_price():
         'data']['825']['quote']['TRY']['price']  # float price
     return data
 
+"""
 @app.route('/', methods=['GET', 'POST'])
 def index():
     # if user login => redirect login
@@ -42,7 +43,7 @@ def login():
 def register():
     # register and redirect index
     abort(Response("empty page",401))
-
+"""
 
 users = [
     {
