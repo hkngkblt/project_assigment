@@ -26,7 +26,7 @@ def get_usd_price():
     return data
 
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET'])
 def index():
     # if user login => redirect login
     # else redirect => homepage
