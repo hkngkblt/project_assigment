@@ -30,18 +30,18 @@ def get_usd_price():
 def index():
     # if user login => redirect login
     # else redirect => homepage
-    abort(Response("empty page",401))
+    return {'success': True, "msg": "empty page"}
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     # login and redirect homepage
-    abort(Response("empty page",401))
+    return {'success': True, "msg": "empty page"}
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     # register and redirect index
-    abort(Response("empty page",401))
+    return {'success': True, "msg": "empty page"}
 
 
 users = [
