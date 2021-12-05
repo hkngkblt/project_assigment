@@ -2,7 +2,7 @@
 import copy
 import json
 from requests import Session
-from flask import Flask, abort, render_template, request, redirect, url_for, session, g, send_from_directory, Response, send_file, make_response
+from flask import Flask, abort, render_template, request, Response
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "helloworld"
@@ -26,13 +26,12 @@ def get_usd_price():
         'data']['825']['quote']['TRY']['price']  # float price
     return data
 
-"""
 @app.route('/', methods=['GET', 'POST'])
 def index():
     # if user login => redirect login
     # else redirect => homepage
-    abort(Response("empty page",401))
-    
+    #abort(Response("empty page",401))
+    return render_template('home.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -43,7 +42,6 @@ def login():
 def register():
     # register and redirect index
     abort(Response("empty page",401))
-"""
 
 users = [
     {

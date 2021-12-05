@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block title %}Snake{% endblock %}
+{% block content %}
+  <style>
+
+    #game-board {
+      background-color: #CCC;
+      width: 50vmin;
+      height: 50vmin;
+      display: grid;
+      grid-template-rows: repeat(21, 1fr);
+      grid-template-columns: repeat(21, 1fr);
+    }
+
+    .snake {
+      background-color: hsl(200, 100%, 50%);
+      border: .25vmin solid black;
+      margin: 5%;
+    }
+
+    .food {
+      background-color: rgba(255,255,255,0.5);
+      border: .25vmin solid black;
+    }
+  </style>
+  <script src="static/scripts/snake/game.js" defer type="module"></script>
+  <div id="game-board" ></div>
+{% endblock %}
