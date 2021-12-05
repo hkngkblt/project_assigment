@@ -2,7 +2,7 @@
 import copy
 import json
 from requests import Session
-from flask import Flask, request, abort, Response
+from flask import Flask, request, abort, Response, render_template
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "helloworld"
@@ -30,7 +30,7 @@ def get_usd_price():
 def index():
     # if user login => redirect login
     # else redirect => homepage
-    return {'success': True, "msg": "empty page"}
+    return render_template('home.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
