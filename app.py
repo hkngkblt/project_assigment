@@ -28,21 +28,21 @@ def get_usd_price():
 
 @app.route('/', methods=['GET'])
 def index():
-    pass
     # if user login => redirect login
     # else redirect => homepage
+    abort(Response(401))
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    pass
     # login and redirect homepage
+    abort(Response(401))
 
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    pass
     # register and redirect index
+    abort(Response(401))
 
 
 users = [
