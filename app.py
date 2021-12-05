@@ -1,4 +1,4 @@
-
+"""
 import copy
 import json
 from requests import Session
@@ -6,6 +6,40 @@ from flask import Flask, request, abort, Response
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "sigma"
+"""
+import copy
+from flask import Flask
+from os import path
+from flask import Flask, abort, render_template, request, redirect, url_for, session, g, send_from_directory, Response, send_file, make_response
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = "helloworld"
+
+@app.route('/home', methods=['GET', 'POST'])
+def home():
+    return render_template('home.html')
+
+@app.route('/snake_game', methods=['GET', 'POST'])
+def snake_game():
+    return render_template('snake_game.html')
+
+@app.route('/card_game', methods=['GET', 'POST'])
+def card_game():
+    return render_template('flip_card_game.html')
+
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/particle', methods=['GET', 'POST'])
+def particle():
+    if (request.method == 'POST'):
+        user_mail = request.form.get('user_mail')
+        password = request.form.get('user_pass')
+        if user_mail == "burcu" and password == "burcu":
+            print(user_mail, "  if  ", password)
+            return redirect(url_for('home'))
+
+        print(user_mail, "  else  ", password)
+        return redirect(url_for('particle'))
+    return render_template('particle.html')
 
 # get usdt price with Coinmarketcap API
 def get_usd_price():
@@ -25,7 +59,7 @@ def get_usd_price():
         'data']['825']['quote']['TRY']['price']  # float price
     return data
 
-
+"""
 @app.route('/', methods=['GET'])
 def index():
     # if user login => redirect login
@@ -37,7 +71,7 @@ def index():
 def login():
     # login and redirect homepage
     abort(Response(401))
-
+"""
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
