@@ -5,7 +5,7 @@ from requests import Session
 from flask import Flask, request, abort, Response
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = "sigma"
+app.config['SECRET_KEY'] = "helloworld"
 """
 import copy
 from flask import Flask
@@ -15,31 +15,9 @@ from flask import Flask, abort, render_template, request, redirect, url_for, ses
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "helloworld"
 
-@app.route('/home', methods=['GET', 'POST'])
-def home():
-    return render_template('home.html')
-
-@app.route('/snake_game', methods=['GET', 'POST'])
-def snake_game():
-    return render_template('snake_game.html')
-
-@app.route('/card_game', methods=['GET', 'POST'])
-def card_game():
-    return render_template('flip_card_game.html')
-
 @app.route('/', methods=['GET', 'POST'])
-@app.route('/particle', methods=['GET', 'POST'])
 def particle():
-    if (request.method == 'POST'):
-        user_mail = request.form.get('user_mail')
-        password = request.form.get('user_pass')
-        if user_mail == "burcu" and password == "burcu":
-            print(user_mail, "  if  ", password)
-            return redirect(url_for('home'))
-
-        print(user_mail, "  else  ", password)
-        return redirect(url_for('particle'))
-    return render_template('particle.html')
+    abort(Response("empty page",401))
 
 # get usdt price with Coinmarketcap API
 def get_usd_price():
