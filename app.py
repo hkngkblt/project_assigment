@@ -5,6 +5,8 @@ from requests import Session
 from flask import Flask, abort, request, Response
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = "helloworld"
+
 
 # get usdt price with Coinmarketcap API
 def get_usd_price():
