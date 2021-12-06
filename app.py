@@ -26,12 +26,12 @@ def get_usd_price():
         'data']['825']['quote']['TRY']['price']  # float price
     return data
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
 def index():
     # if user login => redirect login
     # else redirect => homepage
     #abort(Response("empty page",401))
-    return {"msg": False}
+    return "<p>This site is a prototype API for assignment.</p>"
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
