@@ -2,7 +2,7 @@
 import copy
 import json
 from requests import Session
-from flask import Flask, abort, render_template, request, Response
+from flask import Flask, abort, request, Response
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "helloworld"
@@ -31,7 +31,7 @@ def index():
     # if user login => redirect login
     # else redirect => homepage
     #abort(Response("empty page",401))
-    return render_template('base.html')
+    return {"msg": False}
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
