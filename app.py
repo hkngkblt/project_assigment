@@ -5,8 +5,6 @@ from requests import Session
 from flask import Flask, abort, request, Response
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = "helloworld"
-
 
 # get usdt price with Coinmarketcap API
 def get_usd_price():
@@ -31,7 +29,6 @@ def home():
     # if user login => redirect login
     # else redirect => homepage
     abort(Response("empty page",401))
-    #return "<p>This site is a prototype API for assignment.</p>"
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
